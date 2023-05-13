@@ -14,9 +14,8 @@ const video = document.querySelector("video");
 const videoContainer = document.querySelector("#movie_player");
 const controlBox = document.createElement("div")
 controlBox.innerHTML = `<span id="ytSpeedDown">&lt;&lt;</span>
-                        <span id="ytSpeedStatus">ababa</span>
+                        <span id="ytSpeedStatus">${video.playbackRate}</span>
                         <span id="ytSpeedUp">&gt;&gt;</span>`
-console.log(videoContainer, video, controlBox);
 videoContainer.prepend(controlBox);
 controlBox.style.cssText = `position: absolute;
                             top: 0;
@@ -26,12 +25,13 @@ controlBox.style.cssText = `position: absolute;
                             z-index: 20;
                             cursor: pointer;
                             font-size: 2rem`;
+
 const speedUp = document.querySelector("#ytSpeedUp");
 const speedDown = document.querySelector("#ytSpeedDown");
 const speedStatus = document.querySelector("#ytSpeedStatus");
 
 speedUp.addEventListener("click", incrementSpeed);
-speedStatus.addEventListener("click", () => video.playbackRate = 1);
+speedStatus.addEventListener("click", resetSpeed);
 speedDown.addEventListener("click", decrementSpeed);
 document.addEventListener("keydown", (e) => {
     if (e.key === "+")
@@ -42,15 +42,28 @@ document.addEventListener("keydown", (e) => {
         video.playbackRate = 1;
 });
 
-function incrementSpeed ()  {
-    if (video.playbackRate < 5)
-        return video.playbackRate += 0.25;
+function incrementSpeed() {
+    if (video.playbackRate < 5) {
+        video.playbackRate += 0.25;
+        updateStatus();
+    }
 };
 
-function decrementSpeed () {
-    if (video.playbackRate > 0.25)
-        return video.playbackRate -= 0.25;
+function decrementSpeed() {
+    if (video.playbackRate > 0.25) {
+        video.playbackRate -= 0.25;
+        updateStatus();
+    }
 };
+
+function resetSpeed() {
+    video.playbackRate = 1;
+    updateStatus();
+}
+
+function updateStatus() {
+    speedStatus.textContent = video.playbackRate;
+}
 
 /* TODO
     * Style
