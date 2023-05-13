@@ -22,10 +22,12 @@ controlBox.style.cssText = `position: absolute;
                             color: red;
                             background: hotpink;
                             z-index: 20;
-                            cursor: pointer;`;
+                            cursor: pointer;
+                            font-size: 2rem`;
 const speedUp = document.querySelector("#ytSpeedUp");
 const speedDown = document.querySelector("#ytSpeedDown");
 const speedStatus = document.querySelector("#ytSpeedUp");
 
 speedUp.addEventListener("click", () => video.playbackRate += 0.5);
+speedStatus.addEventListener("click", () => video.playbackRate = 1);
 speedDown.addEventListener("click", () => video.playbackRate -= 0.5);
