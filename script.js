@@ -35,11 +35,11 @@ speedStatus.addEventListener("click", resetSpeed);
 speedDown.addEventListener("click", decrementSpeed);
 document.addEventListener("keydown", (e) => {
     if (e.key === "+")
-        incrementSpeed()
+        incrementSpeed();
     if (e.key === "-")
-        decrementSpeed()
+        decrementSpeed();
     if (e.key === "=")
-        video.playbackRate = 1;
+        resetSpeed();
 });
 
 function incrementSpeed() {
