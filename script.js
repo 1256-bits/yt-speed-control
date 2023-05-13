@@ -1,11 +1,11 @@
 // ==UserScript==
-// @name        New script - youtube.com
+// @name        Youtube playback rate changer
 // @namespace   Violentmonkey Scripts
 // @match       https://www.youtube.com/watch
 // @grant       none
 // @version     1.0
 // @author      -
-// @description 5/13/2023, 11:54:58 AM
+// @description Adds controls for adjusting video speed beyond 2x
 // ==/UserScript==
 
 const video = document.querySelector("video");
