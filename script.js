@@ -9,7 +9,7 @@
 // ==/UserScript==
 
 const video = document.querySelector("video");
-const videoContainer =  document.querySelector("#movie_player");
+const videoContainer = document.querySelector("#movie_player");
 const controlBox = document.createElement("div")
 controlBox.innerHTML = `<span id="ytSpeedDown">&lt;&lt;</span>
                         <span id="ytSpeedStatus">ababa</span>
@@ -28,6 +28,12 @@ const speedUp = document.querySelector("#ytSpeedUp");
 const speedDown = document.querySelector("#ytSpeedDown");
 const speedStatus = document.querySelector("#ytSpeedUp");
 
-speedUp.addEventListener("click", () => video.playbackRate += 0.5);
+speedUp.addEventListener("click", () => video.playbackRate += 0.25);
 speedStatus.addEventListener("click", () => video.playbackRate = 1);
-speedDown.addEventListener("click", () => video.playbackRate -= 0.5);
+speedDown.addEventListener("click", () => video.playbackRate -= 0.25);
+
+/* TODO
+    * Limit range (0.25)
+    * + and - keys change speed
+    * Style
+*/
