@@ -3,7 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://www.youtube.com/watch
 // @grant       none
-// @version     1.2
+// @version     1.2.1
 // @author      -
 // @downloadURL https://raw.githubusercontent.com/1256-bits/yt-speed-control/main/script.js
 // @updateURL https://raw.githubusercontent.com/1256-bits/yt-speed-control/main/script.js
@@ -28,7 +28,7 @@ controlBox.style.cssText = `position: absolute;
                             font-size: 2rem`;
 const speedUp = document.querySelector("#ytSpeedUp");
 const speedDown = document.querySelector("#ytSpeedDown");
-const speedStatus = document.querySelector("#ytSpeedUp");
+const speedStatus = document.querySelector("#ytSpeedStatus");
 
 speedUp.addEventListener("click", incrementSpeed);
 speedStatus.addEventListener("click", () => video.playbackRate = 1);
