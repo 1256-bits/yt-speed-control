@@ -28,12 +28,17 @@ const speedUp = document.querySelector("#ytSpeedUp");
 const speedDown = document.querySelector("#ytSpeedDown");
 const speedStatus = document.querySelector("#ytSpeedUp");
 
-speedUp.addEventListener("click", () => video.playbackRate += 0.25);
+speedUp.addEventListener("click", () => {
+    if (video.playbackRate >= 5)
+        return video.playbackRate += 0.25;
+});
 speedStatus.addEventListener("click", () => video.playbackRate = 1);
-speedDown.addEventListener("click", () => video.playbackRate -= 0.25);
+speedDown.addEventListener("click", () => {
+    if (video.playbackRate <= 0.25)
+        return video.playbackRate -= 0.25;
+});
 
 /* TODO
-    * Limit range (0.25)
     * + and - keys change speed
     * Style
 */
