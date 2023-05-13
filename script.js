@@ -3,7 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://www.youtube.com/watch
 // @grant       none
-// @version     1.2.1
+// @version     1.2.2
 // @author      -
 // @downloadURL https://raw.githubusercontent.com/1256-bits/yt-speed-control/main/script.js
 // @updateURL https://raw.githubusercontent.com/1256-bits/yt-speed-control/main/script.js
@@ -43,12 +43,12 @@ document.addEventListener("keydown", (e) => {
 });
 
 function incrementSpeed ()  {
-    if (video.playbackRate >= 5)
+    if (video.playbackRate < 5)
         return video.playbackRate += 0.25;
 };
 
 function decrementSpeed () {
-    if (video.playbackRate <= 0.25)
+    if (video.playbackRate > 0.25)
         return video.playbackRate -= 0.25;
 };
 
