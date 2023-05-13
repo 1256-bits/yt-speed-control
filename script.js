@@ -3,7 +3,7 @@
 // @namespace   Violentmonkey Scripts
 // @match       https://www.youtube.com/watch
 // @grant       none
-// @version     1.1
+// @version     1.2
 // @author      -
 // @downloadURL https://raw.githubusercontent.com/1256-bits/yt-speed-control/main/script.js
 // @updateURL https://raw.githubusercontent.com/1256-bits/yt-speed-control/main/script.js
@@ -30,17 +30,28 @@ const speedUp = document.querySelector("#ytSpeedUp");
 const speedDown = document.querySelector("#ytSpeedDown");
 const speedStatus = document.querySelector("#ytSpeedUp");
 
-speedUp.addEventListener("click", () => {
-    if (video.playbackRate >= 5)
-        return video.playbackRate += 0.25;
-});
+speedUp.addEventListener("click", incrementSpeed);
 speedStatus.addEventListener("click", () => video.playbackRate = 1);
-speedDown.addEventListener("click", () => {
-    if (video.playbackRate <= 0.25)
-        return video.playbackRate -= 0.25;
+speedDown.addEventListener("click", decrementSpeed);
+document.addEventListener("keydown", (e) => {
+    if (e.key === "+")
+        incrementSpeed()
+    if (e.key === "-")
+        decrementSpeed()
+    if (e.key === "=")
+        video.playbackRate = 1;
 });
 
+function incrementSpeed ()  {
+    if (video.playbackRate >= 5)
+        return video.playbackRate += 0.25;
+};
+
+function decrementSpeed () {
+    if (video.playbackRate <= 0.25)
+        return video.playbackRate -= 0.25;
+};
+
 /* TODO
-    * + and - keys change speed
     * Style
 */
