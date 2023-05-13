@@ -6,6 +6,7 @@
 // @version     1.0
 // @author      -
 // @downloadURL https://raw.githubusercontent.com/1256-bits/yt-speed-control/main/script.js
+// @updateURL https://raw.githubusercontent.com/1256-bits/yt-speed-control/main/script.js
 // @description Adds controls for adjusting video speed beyond 2x
 // ==/UserScript==
 
