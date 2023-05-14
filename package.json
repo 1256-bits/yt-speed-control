@@ -1,9 +1,9 @@
 {
   "name": "yt-speed-control",
-  "version": "0.0.0",
+  "version": "1.4.0",
   "description": "",
   "author": "1256-bit",
-  "license": "MIT",
+  "license": "MPL-2.0 license",
   "private": true,
   "engines": {
     "node": ">=16"

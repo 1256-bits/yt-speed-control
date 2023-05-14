@@ -1,24 +1,54 @@
 // global CSS
-import globalCss from './style.css';
+//import globalCss from './style.css';
 // CSS modules
-import styles, { stylesheet } from './style.module.css';
+import styles from './style.module.css';
 
-function Greetings() {
-  return (
-    <>
-      <div className={styles.title}>hello</div>
-      <p className={styles.desc}>This is a panel. You can drag to move it.</p>
-    </>
-  );
+const video = document.querySelector('video');
+const videoContainer = document.querySelector('#movie_player');
+const controlBox = document.createElement('div');
+
+controlBox.innerHTML = `<button class="${styles.speedButton} ${styles.left}" id="ytSpeedDown">&lt;&lt;</button>
+                        <button id="${styles.ytSpeedStatus}">${video.playbackRate}</button>
+                        <button class="${styles.speedButton} ${styles.right}" id="ytSpeedUp">&gt;&gt;</button>`;
+
+videoContainer.prepend(controlBox);
+
+const speedUp = document.querySelector('#ytSpeedUp');
+const speedDown = document.querySelector('#ytSpeedDown');
+const speedStatus = document.querySelector('#ytSpeedStatus');
+
+speedUp.addEventListener('click', incrementSpeed);
+speedStatus.addEventListener('click', resetSpeed);
+speedDown.addEventListener('click', decrementSpeed);
+document.addEventListener('keydown', (e) => {
+  if (e.key === '+') incrementSpeed();
+  if (e.key === '-') decrementSpeed();
+  if (e.key === '=') resetSpeed();
+});
+
+function incrementSpeed() {
+  if (video.playbackRate < 5) {
+    video.playbackRate += 0.25;
+    updateStatus();
+  }
 }
 
-// Let's create a movable panel using @violentmonkey/ui
-const panel = VM.getPanel({
-  content: <Greetings />,
-  theme: 'dark',
-  style: [globalCss, stylesheet].join('\n'),
-});
-panel.wrapper.style.top = '100px';
-panel.setMovable(true);
-panel.show();
-Greetings();
+function decrementSpeed() {
+  if (video.playbackRate > 0.25) {
+    video.playbackRate -= 0.25;
+    updateStatus();
+  }
+}
+
+function resetSpeed() {
+  video.playbackRate = 1;
+  updateStatus();
+}
+
+function updateStatus() {
+  speedStatus.textContent = video.playbackRate;
+}
+
+/* TODO
+ * Style
+ */
