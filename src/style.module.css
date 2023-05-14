@@ -1,10 +1,16 @@
-div {
+.controlBox {
   position: absolute;
   top: 5px;
   left: 5px;
   z-index: 20;
   border-radius: 1em;
   display: flex;
+  font-size: 1.3rem;
+  opacity: 0.7;
+}
+
+.controlBox:hover {
+  opacity: 1;
 }
 
 .speedButton {
@@ -35,6 +41,9 @@ div {
   all: unset;
   padding: 0.1em;
   background-color: #ccc;
+  color: black;
+  text-align: center;
+  width: 2em;
 }
 
 #ytSpeedStatus:hover {

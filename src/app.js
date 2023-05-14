@@ -1,11 +1,12 @@
-// global CSS
 //import globalCss from './style.css';
 // CSS modules
-import styles from './style.module.css';
+import styles, { stylesheet } from './style.module.css';
+document.head.append(VM.m(<style>{stylesheet}</style>));
 
 const video = document.querySelector('video');
 const videoContainer = document.querySelector('#movie_player');
 const controlBox = document.createElement('div');
+controlBox.classList.add(styles.controlBox);
 
 controlBox.innerHTML = `<button class="${styles.speedButton} ${styles.left}" id="ytSpeedDown">&lt;&lt;</button>
                         <button id="${styles.ytSpeedStatus}">${video.playbackRate}</button>
@@ -15,7 +16,7 @@ videoContainer.prepend(controlBox);
 
 const speedUp = document.querySelector('#ytSpeedUp');
 const speedDown = document.querySelector('#ytSpeedDown');
-const speedStatus = document.querySelector('#ytSpeedStatus');
+const speedStatus = document.querySelector(`#${styles.ytSpeedStatus}`);
 
 speedUp.addEventListener('click', incrementSpeed);
 speedStatus.addEventListener('click', resetSpeed);
@@ -52,3 +53,4 @@ function updateStatus() {
 /* TODO
  * Style
  */
+//changes
