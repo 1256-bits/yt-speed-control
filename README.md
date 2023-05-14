@@ -1,16 +1,4 @@
-# yt-speed-control
-
-This is a userscript initiated from [@violentmonkey/generator-userscript](https://github.com/violentmonkey/generator-userscript).
-
-## Development
-
-``` sh
-# Compile and watch
-$ npm run dev
-
-# Build script
-$ npm run build
-
-# Lint
-$ npm run lint
-```
+#yt-speed-control
+A userscript for violentmonkey browser addon. Adds a small panel on the video that
+allows you to control the playback speed. Keyboard controls are also available.
+Allows to speed the video up beyond the usual 2x speed.
