@@ -6,8 +6,8 @@
 // @version     1.4.0
 // @author      1256-bit
 // @require     https://cdn.jsdelivr.net/combine/npm/@violentmonkey/dom@2,npm/@violentmonkey/ui@0.7
-// @downloadURL https://raw.githubusercontent.com/1256-bits/yt-speed-control/main/script.js
-// @updateURL   https://raw.githubusercontent.com/1256-bits/yt-speed-control/main/script.js
+// @downloadURL https://github.com/1256-bits/yt-speed-control/raw/release/dist/index.user.js
+// @updateURL   https://github.com/1256-bits/yt-speed-control/raw/release/dist/index.user.js
 // @description Adds controls for adjusting video speed beyond 2x
 // @grant       GM_addStyle
 // ==/UserScript==
